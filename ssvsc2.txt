@@ -1,0 +1,668 @@
+local Theme = Color3.fromRGB(255, 255, 255)
+local Background = Color3.fromRGB(0, 0, 0)
+
+SSV = {}
+
+Tab = {
+	"Home",
+	"Event",
+	"Function",
+	"Click",
+	"Credits",
+	"Setting"
+}
+
+local function Switched(Name)
+	for i = 1, #Tab do
+		SSV[Tab[i] .. "Tab"]["BackgroundColor3"] = Background
+		SSV[Tab[i] .. "Tab"]["TextColor3"] = Theme
+		SSV[Tab[i] .. "Page"]["Visible"] = false
+	end
+
+	SSV[Name .. "Tab"]["BackgroundColor3"] = Theme
+	SSV[Name .. "Tab"]["TextColor3"] = Background
+	SSV[Name .. "Page"]["Visible"] = true
+end
+
+
+SSV["ScreenGui"] = Instance.new("ScreenGui", game:GetService("CoreGui"))
+SSV["ScreenGui"]["Name"] = "SSV"
+SSV["ScreenGui"]["ResetOnSpawn"] = false
+SSV["ScreenGui"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
+
+SSV["Frame"] = Instance.new("Frame", SSV["ScreenGui"])
+SSV["Frame"]["Name"] = "Frame"
+SSV["Frame"]["Active"] = true
+SSV["Frame"]["Draggable"] = true
+SSV["Frame"]["BorderSizePixel"] = 0.000
+SSV["Frame"]["BackgroundColor3"] = Background
+SSV["Frame"]["Position"] = UDim2.new(0.200, 0, -1.000, 0)
+SSV["Frame"]["Size"] = UDim2.new(0.600, 0, 0.800, 0)
+SSV["Frame"]["Style"] = Enum.FrameStyle.RobloxRound
+
+SSV["Title"] = Instance.new("TextLabel", SSV["Frame"])
+SSV["Title"]["Name"] = "Title"
+SSV["Title"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
+SSV["Title"]["BackgroundTransparency"] = 1.000
+SSV["Title"]["Position"] = UDim2.new(0.000, 0, 0.050, 0)
+SSV["Title"]["Size"] = UDim2.new(1.000, 0, 0.000, 0)
+SSV["Title"]["Font"] = Enum.Font.Cartoon
+SSV["Title"]["Text"] = "SS-V Scanner"
+SSV["Title"]["TextColor3"] = Theme
+SSV["Title"]["TextSize"] = 20.000
+
+SSV["Close"] = Instance.new("TextButton", SSV["Frame"])
+SSV["Close"]["Name"] = "Close"
+SSV["Close"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
+SSV["Close"]["BackgroundTransparency"] = 1.000
+SSV["Close"]["Position"] = UDim2.new(0.950, 0, 0.000, 0)
+SSV["Close"]["Size"] = UDim2.new(0.050, 0, 0.100, 0)
+SSV["Close"]["Font"] = Enum.Font.GothamBold
+SSV["Close"]["Text"] = "X"
+SSV["Close"]["TextColor3"] = Theme
+SSV["Close"]["TextSize"] = 20.000
+
+SSV["Line"] = Instance.new("Frame", SSV["Frame"])
+SSV["Line"]["Name"] = "Line"
+SSV["Line"]["BorderSizePixel"] = 0.000
+SSV["Line"]["BackgroundColor3"] = Theme
+SSV["Line"]["Position"] = UDim2.new(0.000, 0, 0.090, 0)
+SSV["Line"]["Size"] = UDim2.new(1.000, 0, 0.025, 0)
+
+SSV["FramePage"] = Instance.new("Frame", SSV["Frame"])
+SSV["FramePage"]["Name"] = "FramePage"
+SSV["FramePage"]["BackgroundTransparency"] = 1.000
+SSV["FramePage"]["BackgroundColor3"] = Background
+SSV["FramePage"]["BorderSizePixel"] = 0
+SSV["FramePage"]["Position"] = UDim2.new(0.0, 0, 0.0, 0)
+SSV["FramePage"]["Size"] = UDim2.new(1.0, 0, 1.0, 0)
+
+SSV["Tabs"] = Instance.new("Frame", SSV["FramePage"])
+SSV["Tabs"]["Name"] = "Tabs"
+SSV["Tabs"]["BackgroundColor3"] = Color3.fromRGB(1, 1, 1)
+SSV["Tabs"]["BackgroundTransparency"] = 1.000
+SSV["Tabs"]["Size"] = UDim2.new(0.250, 0, 1.0, 0)
+
+SSV["HomeTab"] = Instance.new("TextButton", SSV["Tabs"])
+SSV["HomeTab"]["Name"] = "Home"
+SSV["HomeTab"]["BackgroundColor3"] = Theme
+SSV["HomeTab"]["BorderSizePixel"] = 0
+SSV["HomeTab"]["Position"] = UDim2.new(0.075, 0, 0.150, 0)
+SSV["HomeTab"]["Size"] = UDim2.new(0.800, 0, 0.100, 0)
+SSV["HomeTab"]["Font"] = Enum.Font.Cartoon
+SSV["HomeTab"]["Text"] = "Home"
+SSV["HomeTab"]["TextColor3"] = Background
+SSV["HomeTab"]["TextSize"] = 18
+
+SSV["EventTab"] = Instance.new("TextButton", SSV["Tabs"])
+SSV["EventTab"]["Name"] = "Event"
+SSV["EventTab"]["BackgroundColor3"] = Background
+SSV["EventTab"]["BorderSizePixel"] = 0
+SSV["EventTab"]["Position"] = UDim2.new(0.075, 0, 0.300, 0)
+SSV["EventTab"]["Size"] = UDim2.new(0.800, 0, 0.100, 0)
+SSV["EventTab"]["Font"] = Enum.Font.Cartoon
+SSV["EventTab"]["Text"] = "Event"
+SSV["EventTab"]["TextColor3"] = Theme
+SSV["EventTab"]["TextSize"] = 18
+
+SSV["FunctionTab"] = Instance.new("TextButton", SSV["Tabs"])
+SSV["FunctionTab"]["Name"] = "Function"
+SSV["FunctionTab"]["BackgroundColor3"] = Background
+SSV["FunctionTab"]["BorderSizePixel"] = 0
+SSV["FunctionTab"]["Position"] = UDim2.new(0.075, 0, 0.450, 0)
+SSV["FunctionTab"]["Size"] = UDim2.new(0.800, 0, 0.100, 0)
+SSV["FunctionTab"]["Font"] = Enum.Font.Cartoon
+SSV["FunctionTab"]["Text"] = "Function"
+SSV["FunctionTab"]["TextColor3"] = Theme
+SSV["FunctionTab"]["TextSize"] = 18
+
+SSV["ClickTab"] = Instance.new("TextButton", SSV["Tabs"])
+SSV["ClickTab"]["Name"] = "Click"
+SSV["ClickTab"]["BackgroundColor3"] = Background
+SSV["ClickTab"]["BorderSizePixel"] = 0
+SSV["ClickTab"]["Position"] = UDim2.new(0.075, 0, 0.600, 0)
+SSV["ClickTab"]["Size"] = UDim2.new(0.800, 0, 0.100, 0)
+SSV["ClickTab"]["Font"] = Enum.Font.Cartoon
+SSV["ClickTab"]["Text"] = "Click"
+SSV["ClickTab"]["TextColor3"] = Theme
+SSV["ClickTab"]["TextSize"] = 18
+
+SSV["CreditsTab"] = Instance.new("TextButton", SSV["Tabs"])
+SSV["CreditsTab"]["Name"] = "Credits"
+SSV["CreditsTab"]["BackgroundColor3"] = Background
+SSV["CreditsTab"]["BorderSizePixel"] = 0
+SSV["CreditsTab"]["Position"] = UDim2.new(0.075, 0, 0.750, 0)
+SSV["CreditsTab"]["Size"] = UDim2.new(0.800, 0, 0.100, 0)
+SSV["CreditsTab"]["Font"] = Enum.Font.Cartoon
+SSV["CreditsTab"]["Text"] = "Credits"
+SSV["CreditsTab"]["TextColor3"] = Theme
+SSV["CreditsTab"]["TextSize"] = 18
+
+SSV["SettingTab"] = Instance.new("TextButton", SSV["Tabs"])
+SSV["SettingTab"]["Name"] = "Setting"
+SSV["SettingTab"]["BackgroundColor3"] = Background
+SSV["SettingTab"]["BorderSizePixel"] = 0
+SSV["SettingTab"]["Position"] = UDim2.new(0.075, 0, 0.900, 0)
+SSV["SettingTab"]["Size"] = UDim2.new(0.800, 0, 0.100, 0)
+SSV["SettingTab"]["Font"] = Enum.Font.Cartoon
+SSV["SettingTab"]["Text"] = "Setting"
+SSV["SettingTab"]["TextColor3"] = Theme
+SSV["SettingTab"]["TextSize"] = 18
+
+SSV["HomePage"] = Instance.new("Frame", SSV["FramePage"])
+SSV["HomePage"]["Name"] = "HomePage"
+SSV["HomePage"]["BackgroundColor3"] = Background
+SSV["HomePage"]["BorderSizePixel"] = 0
+SSV["HomePage"]["Position"] = UDim2.new(0.250, 0, 0.150, 0)
+SSV["HomePage"]["Size"] = UDim2.new(0.725, 0, 0.850, 0)
+SSV["HomePage"]["Visible"] = true
+
+SSV["EventPage"] = Instance.new("Frame", SSV["FramePage"])
+SSV["EventPage"]["Name"] = "EventPage"
+SSV["EventPage"]["BackgroundColor3"] = Background
+SSV["EventPage"]["BorderSizePixel"] = 0
+SSV["EventPage"]["Position"] = UDim2.new(0.250, 0, 0.150, 0)
+SSV["EventPage"]["Size"] = UDim2.new(0.725, 0, 0.850, 0)
+SSV["EventPage"]["Visible"] = false
+
+SSV["FunctionPage"] = Instance.new("Frame", SSV["FramePage"])
+SSV["FunctionPage"]["Name"] = "FunctionPage"
+SSV["FunctionPage"]["BackgroundColor3"] = Background
+SSV["FunctionPage"]["BorderSizePixel"] = 0
+SSV["FunctionPage"]["Position"] = UDim2.new(0.250, 0, 0.150, 0)
+SSV["FunctionPage"]["Size"] = UDim2.new(0.725, 0, 0.850, 0)
+SSV["FunctionPage"]["Visible"] = false
+
+SSV["ClickPage"] = Instance.new("Frame", SSV["FramePage"])
+SSV["ClickPage"]["Name"] = "ClickPage"
+SSV["ClickPage"]["BackgroundColor3"] = Background
+SSV["ClickPage"]["BorderSizePixel"] = 0
+SSV["ClickPage"]["Position"] = UDim2.new(0.250, 0, 0.150, 0)
+SSV["ClickPage"]["Size"] = UDim2.new(0.725, 0, 0.850, 0)
+SSV["ClickPage"]["Visible"] = false
+
+SSV["CreditsPage"] = Instance.new("Frame", SSV["FramePage"])
+SSV["CreditsPage"]["Name"] = "CreditsPage"
+SSV["CreditsPage"]["BackgroundColor3"] = Background
+SSV["CreditsPage"]["BorderSizePixel"] = 0
+SSV["CreditsPage"]["Position"] = UDim2.new(0.250, 0, 0.150, 0)
+SSV["CreditsPage"]["Size"] = UDim2.new(0.725, 0, 0.850, 0)
+SSV["CreditsPage"]["Visible"] = false
+
+SSV["SettingPage"] = Instance.new("Frame", SSV["FramePage"])
+SSV["SettingPage"]["Name"] = "SettingPage"
+SSV["SettingPage"]["BackgroundColor3"] = Background
+SSV["SettingPage"]["BorderSizePixel"] = 0
+SSV["SettingPage"]["Position"] = UDim2.new(0.250, 0, 0.150, 0)
+SSV["SettingPage"]["Size"] = UDim2.new(0.725, 0, 0.850, 0)
+SSV["SettingPage"]["Visible"] = false
+
+SSV["PlayerIcon"] = Instance.new("ImageLabel", SSV["HomePage"])
+SSV["PlayerIcon"]["Name"] = "PlayerIcon"
+SSV["PlayerIcon"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+SSV["PlayerIcon"]["BorderSizePixel"] = 0
+SSV["PlayerIcon"]["Position"] = UDim2.new(0.100, 0, 0.100, 0)
+SSV["PlayerIcon"]["Size"] = UDim2.new(0.150, 0, 0.200, 0)
+SSV["PlayerIcon"]["Image"] = game.Players:GetUserThumbnailAsync(game.Players.LocalPlayer.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+
+SSV["PlayerRound"] = Instance.new("ImageLabel", SSV["PlayerIcon"])
+SSV["PlayerRound"]["Name"] = "PlayerRound"
+SSV["PlayerRound"]["BackgroundTransparency"] = 1.000
+SSV["PlayerRound"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+SSV["PlayerRound"]["BorderSizePixel"] = 0
+SSV["PlayerRound"]["Position"] = UDim2.new(0.0, 0, 0.0, 0)
+SSV["PlayerRound"]["Size"] = UDim2.new(1.0, 0, 1.0, 0)
+SSV["PlayerRound"]["Image"] = "rbxassetid://15325012707"
+
+SSV["PlayerName"] = Instance.new("TextLabel", SSV["HomePage"])
+SSV["PlayerName"]["Name"] = "PlayerName"
+SSV["PlayerName"]["BackgroundColor3"] = Color3.fromRGB(1, 1, 1)
+SSV["PlayerName"]["BackgroundTransparency"] = 1.000
+SSV["PlayerName"]["Position"] = UDim2.new(0.275, 0, 0.075, 0)
+SSV["PlayerName"]["Size"] = UDim2.new(0.200, 0, 0.200, 0)
+SSV["PlayerName"]["Font"] = Enum.Font.Cartoon
+SSV["PlayerName"]["Text"] = "" .. game:GetService("Players").LocalPlayer.Name .. "\n(" .. game:GetService("Players").LocalPlayer.UserId .. ")"
+SSV["PlayerName"]["TextColor3"] = Theme
+SSV["PlayerName"]["TextSize"] = 15
+SSV["PlayerName"]["TextXAlignment"] = Enum.TextXAlignment.Left
+
+SSV["HomeLabel"] = Instance.new("TextLabel", SSV["HomePage"])
+SSV["HomeLabel"]["Name"] = "HomeLabel"
+SSV["HomeLabel"]["BackgroundColor3"] = Color3.fromRGB(1, 1, 1)
+SSV["HomeLabel"]["BackgroundTransparency"] = 1.000
+SSV["HomeLabel"]["Position"] = UDim2.new(0.100, 0, 0.500, 0)
+SSV["HomeLabel"]["Size"] = UDim2.new(0.200, 0, 0.200, 0)
+SSV["HomeLabel"]["Font"] = Enum.Font.Cartoon
+SSV["HomeLabel"]["Text"] = "Thank you for using SS-V Scanner!\nMade by SlashCoders,\nShoutout to ludas7379!\n\nhttps://dsc.gg/ss-vscanner"
+SSV["HomeLabel"]["TextColor3"] = Theme
+SSV["HomeLabel"]["TextSize"] = 20
+SSV["HomeLabel"]["TextXAlignment"] = Enum.TextXAlignment.Left
+
+local function PlaySFX()
+	SSV["SFX"] = Instance.new("Sound", game:GetService("CoreGui"))
+	SSV["SFX"].SoundId = "rbxassetid://145487017"
+	SSV["SFX"].Looped = false
+	SSV["SFX"]:Play()
+end
+
+SSV["Close"].MouseButton1Click:Connect(function()
+	PlaySFX()
+	SSV["Frame"]:TweenPosition(UDim2.new(0.200, 0, -1.0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, 0.75, true)
+	wait(1)
+	SSV["ScreenGui"]:Remove()
+end)
+
+SSV["HomeTab"].MouseButton1Click:Connect(function()
+	Switched("Home")
+end)
+
+SSV["EventTab"].MouseButton1Click:Connect(function()
+	Switched("Event")
+end)
+
+SSV["FunctionTab"].MouseButton1Click:Connect(function()
+	Switched("Function")
+end)
+
+SSV["ClickTab"].MouseButton1Click:Connect(function()
+	Switched("Click")
+end)
+
+SSV["CreditsTab"].MouseButton1Click:Connect(function()
+	Switched("Credits")
+end)
+
+SSV["SettingTab"].MouseButton1Click:Connect(function()
+	Switched("Setting")
+end)
+
+SSV["SoundEffect"] = Instance.new("Sound", game:GetService("CoreGui"))
+SSV["SoundEffect"].SoundId = "rbxassetid://156785206"
+SSV["SoundEffect"].Looped = false
+SSV["Frame"]:TweenPosition(UDim2.new(0.200, 0, 0.100, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, 0.75, true)
+
+
+local function rgbfy(button)
+    local speed = 5
+    
+    while true do
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(255, i, 0)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(i, 255, 0)
+        end
+
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(0, 255, i)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(0, i, 255)
+        end
+
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(i, 0, 255)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(255, 0, i)
+        end
+    end
+end
+
+local function rgbfy2(button)
+    local speed = 5
+    
+    while true do
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(255, i, 0)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(i, 255, 0)
+        end
+
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(0, 255, i)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(0, i, 255)
+        end
+
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(i, 0, 255)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(255, 0, i)
+        end
+    end
+end
+
+local function rgbfy3(button)
+    local speed = 5
+    
+    while true do
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(255, i, 0)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(i, 255, 0)
+        end
+
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(0, 255, i)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(0, i, 255)
+        end
+
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(i, 0, 255)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(255, 0, i)
+        end
+    end
+end
+
+local function rgbfy4(button)
+    local speed = 5
+    
+    while true do
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(255, i, 0)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(i, 255, 0)
+        end
+
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(0, 255, i)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(0, i, 255)
+        end
+
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(i, 0, 255)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(255, 0, i)
+        end
+    end
+end
+
+local function rgbfy5(button)
+    local speed = 5
+    
+    while true do
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(255, i, 0)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(i, 255, 0)
+        end
+
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(0, 255, i)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(0, i, 255)
+        end
+
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(i, 0, 255)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(255, 0, i)
+        end
+    end
+end
+
+local function rgbfy6(button)
+    local speed = 5
+    
+    while true do
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(255, i, 0)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(i, 255, 0)
+        end
+
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(0, 255, i)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(0, i, 255)
+        end
+
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(i, 0, 255)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(255, 0, i)
+        end
+    end
+end
+
+local function rgbfy7(button)
+    local speed = 5
+    
+    while true do
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(255, i, 0)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(i, 255, 0)
+        end
+
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(0, 255, i)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(0, i, 255)
+        end
+
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(i, 0, 255)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(255, 0, i)
+        end
+    end
+end
+
+local function rgbfy8(button)
+    local speed = 5
+    
+    while true do
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(255, i, 0)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(i, 255, 0)
+        end
+
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(0, 255, i)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(0, i, 255)
+        end
+
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(i, 0, 255)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(255, 0, i)
+        end
+    end
+end
+
+local function rgbfy9(button)
+    local speed = 5
+    
+    while true do
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(255, i, 0)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(i, 255, 0)
+        end
+
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(0, 255, i)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(0, i, 255)
+        end
+
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(i, 0, 255)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(255, 0, i)
+        end
+    end
+end
+
+local function rgbfy10(button)
+    local speed = 5
+    
+    while true do
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(255, i, 0)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(i, 255, 0)
+        end
+
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(0, 255, i)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(0, i, 255)
+        end
+
+        for i = 0, 255, speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(i, 0, 255)
+        end
+
+        for i = 255, 0, -speed do
+            task.wait()
+            button.TextColor3 = Color3.fromRGB(255, 0, i)
+        end
+    end
+end
+
+local stuffs = {
+    SSV["Title"], --1
+    SSV["PlayerName"], --2
+    SSV["HomeLabel"], --3
+    SSV["Close"], --4
+    SSV["HomeTab"], --5
+    SSV["EventTab"], --6
+    SSV["FunctionTab"], --7
+    SSV["CreditsTab"], --8
+    SSV["ClickTab"], --9
+    SSV["SettingTab"] --10
+}
+
+-- Apply rgbfy function to each item in the stuffs table
+rgbfy(stuffs[1])
+rgbfy2(stuffs[2])
+rgbfy3(stuffs[3])
+rgbfy4(stuffs[4])
+rgbfy5(stuffs[5])
+rgbfy6(stuffs[6])
+rgbfy7(stuffs[7])
+rgbfy8(stuffs[8])
+rgbfy9(stuffs[9])
+rgbfy10(stuffs[10])
